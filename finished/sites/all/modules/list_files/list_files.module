@@ -1,0 +1,103 @@
+<?php
+
+/**
+ * @file
+ * Test module to use Symfony's Finder component via Composer inside Drupal! Yay!
+ */
+
+ /**
+  * Implements hook_help.
+  *
+  * Displays help and module information.
+  *
+  * @param path 
+  *   Which path of the site we're using to display help
+  * @param arg 
+  *   Array that holds the current path as returned from arg() function
+  */
+function list_files_help($path, $arg)
+{
+    switch ($path) {
+        case "admin/help#list_files":
+            return '<p>' . t("Displays files in the files directory") . '</p>';
+            break;
+    }
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function list_files_block_info()
+{
+    $blocks['current_files'] = array(
+      'info' => t('Current files'),
+      'cache' => DRUPAL_CACHE_PER_ROLE,
+    );
+
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ * 
+ * Prepares the contents of the block.
+ */
+function list_files_block_view($delta = '')
+{
+    switch ($delta) {
+        case 'current_files':
+            $block['subject'] = t('Current Files');
+            $result = get_current_files();
+
+            foreach ($result as $file){
+                $items[] = array(
+                    'data' => (string) $file,
+                );
+            }
+
+            if (empty($items)) {
+                $block['content'] = t('No posts available.');
+            } else {
+                // Pass data through theme function.
+                $block['content'] = theme('item_list', array(
+                    'items' => $items
+                ));
+            }
+
+            return $block;
+
+            break;
+    }
+}
+
+/**
+ * A utility function to return the array of current SplFileInfo objects
+ */
+function get_current_files()
+{
+    // the "files" directory
+    $dir = drupal_realpath(file_default_scheme() . '://');
+
+    $finder = new \Symfony\Component\Finder\Finder();
+    $finder->in($dir)
+        ->name('*.gif')
+        ->date('since 1 day ago')
+    ;
+    $files = array();
+    foreach ($finder as $file) {
+        $files[] = $file->getFilename();
+    }
+
+    return $files;
+}
+
+
+
+
+
+
+
+
+
+
+

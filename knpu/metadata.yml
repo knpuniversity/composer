@@ -1,0 +1,30 @@
+title:  The Wonderful World of Composer
+price:  0
+length: 14:00
+summary: |
+    Welcome to the wonderful world of Composer - the Dependency Manager for PHP!
+
+    In this Screencast, you'll learn how to install and configure Composer and use it to integrate third-party libraries into any PHP project (even something like Wordpress!). This includes:
+
+    * How Composer makes sharing awesome again
+    * Downloading the composer.phar file
+    * Creating the composer.json file
+    * Installing the external libraries
+    * Handling autoloading
+    * Understanding the `composer.lock` file
+    * The `update` versus `install` command
+    * The `require` command
+    * Storing in version control
+
+    Let's go!
+
+illustration: KnpU-Composer.jpg
+priority: 65
+tags:
+    - { name: php }
+
+chapters:
+    composer:
+        title:      Composer
+        is_free:    true
+        length:     14:00

@@ -1,0 +1,14 @@
+{
+    "name": "weaverryan/drupal",
+    "require": {
+        "symfony/finder": "v2.1.2",
+        "symfony/filesystem": "2.1.x-dev",
+        "doctrine/dbal": "2.3.0"
+    },
+    "authors": [
+        {
+            "name": "Ryan Weaver",
+            "email": "ryan@thatsquality.com"
+        }
+    ]
+}
