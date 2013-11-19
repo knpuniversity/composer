@@ -238,11 +238,11 @@ via Composer - are made available to us automatically.
 
 To make our third-party classes available anywhere, it would be even better
 to include the autoload file in some central, bootstrap file in your project.
-For Drupal, this might be the ``settings.php`` file.
+For Drupal, this might be the ``settings.php`` file::
 
     // sites/default/settings.php
     require __DIR__.'/../../vendor/autoload.php';
-    // ... the rest of the fiel
+    // ... the rest of the file
 
 When we refresh, everything still works.
 
