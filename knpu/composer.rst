@@ -47,13 +47,18 @@ we're going to do this inside a custom Drupal module.
 To start, I've created a function called ``get_current_files`` deep inside
 my project, which returns an array of filenames:: 
 
-    // list_files.module
+    // sites/all/modules/list_files/list_files.module
     // ...
     
     function get_current_files()
     {
         return array('foo');
     }
+
+.. tip::
+
+    I've already created a module called ``list_files`` and enabled it before
+    starting the tutorial.
 
 I've also gone far enough to print these onto the screen. Ok great, now let's
 get to work!
@@ -188,6 +193,9 @@ Now that Composer has downloaded the Finder library, let's use it! To keep
 things simple, I'll paste in some Finder code that looks for all gif files
 that have been modified within the past day::
 
+    // sites/all/modules/list_files/list_files.module
+    // ...
+
     /**
      * A utility function to return the array of current SplFileInfo objects
      */
@@ -225,6 +233,9 @@ thing is that Composer helps us out. To use Composer's autoloader, simply
 include the ``vendor/autoload.php`` file somewhere in your project. For now,
 let's put it right inside this function::
 
+    // sites/all/modules/list_files/list_files.module
+    // ...
+
     function get_current_files()
     {
         require __DIR__.'/../../../../vendor/autoload.php';
@@ -242,6 +253,7 @@ For Drupal, this might be the ``settings.php`` file::
 
     // sites/default/settings.php
     require __DIR__.'/../../vendor/autoload.php';
+
     // ... the rest of the file
 
 When we refresh, everything still works.
