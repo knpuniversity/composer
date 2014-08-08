@@ -1,5 +1,4 @@
 title:  The Wonderful World of Composer
-price:  0
 length: 14:00
 summary: |
     Welcome to the wonderful world of Composer - the Dependency Manager for PHP!
@@ -19,9 +18,6 @@ summary: |
     Let's go!
 
 illustration: KnpU-Composer.png
-priority: 65
-tags:
-    - { name: php }
 
 chapters:
     composer:
