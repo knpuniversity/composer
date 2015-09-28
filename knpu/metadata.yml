@@ -18,10 +18,9 @@ summary: |
     Let's go!
 
 illustration: KnpU-Composer.png
-videoDownloadExtension: mov
 
 chapters:
     composer:
         title:      Composer
         is_free:    true
-        video_key:  b0hmqofljj
+        video_key:  140216313
